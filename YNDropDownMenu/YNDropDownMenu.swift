@@ -612,8 +612,8 @@ open class YNDropDownMenu: UIView, YNDropDownDelegate {
             let buttonView = UIView(frame: CGRect(x: 0, y: 0.0, width: self.bounds.size.width, height: CGFloat(menuHeight)))
             let menuLable = UILabel(frame:  CGRect(x: self.bounds.size.width/2, y: 0.0, width: 200, height: CGFloat(menuHeight)))
             menuLable.text = "JK"
-            menuLable.textColor = UIColor.white
-            
+            menuLable.textColor = UIColor.init(red: 186/255, green: 99/255, blue: 198/255, alpha: 1.0)
+            buttonView.backgroundColor = UIColor.black
             buttonView.addSubview(menuLable)
             buttonView.addSubview(button)
             self.addSubview(buttonView)
@@ -662,17 +662,19 @@ open class YNDropDownMenu: UIView, YNDropDownDelegate {
         for i in 0..<numberOfMenu {
             // Setup button
             if let button = dropDownButtons?[i] {
+                button.backgroundColor = UIColor.black
                 button.frame = CGRect(x: self.bounds.size.width - 100, y: 0.0, width: 100, height: CGFloat(menuHeight))
             }
             // Setup Views
             if let _dropDownView = dropDownViews?[i] {
-                _dropDownView.frame.size = CGSize(width: self.bounds.size.width, height: _dropDownView.frame.height)
+                _dropDownView.frame.size = CGSize(width: self.bounds.size.width/3, height: _dropDownView.frame.height)
                 _dropDownView.frame.origin.y = CGFloat(menuHeight)
+                _dropDownView.frame.origin.x = self.bounds.size.width*2/3
             }
         }
         let originY = self.frame.origin.y + menuHeight + 5
-        self.bottomLine.frame = CGRect(x: 0, y: CGFloat(menuHeight) - 0.5, width: self.frame.width, height: 0.5)
-        self.blurEffectView?.frame = CGRect(x: self.frame.origin.x, y: originY, width: self.frame.width, height: UIScreen.main.bounds.size.height - originY)
+        self.bottomLine.frame = CGRect(x: 0, y: CGFloat(menuHeight) - 0.5, width: self.frame.width/3, height: 0.5)
+        self.blurEffectView?.frame = CGRect(x: self.frame.origin.x, y: originY, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     }
     
     override open func layoutSubviews() {
