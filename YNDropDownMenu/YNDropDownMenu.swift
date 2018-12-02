@@ -610,10 +610,11 @@ open class YNDropDownMenu: UIView, YNDropDownDelegate {
             
             //my customize
             let buttonView = UIView(frame: CGRect(x: 0, y: 0.0, width: self.bounds.size.width, height: CGFloat(menuHeight)))
-            let menuLable = UILabel(frame:  CGRect(x: self.bounds.size.width/2, y: 0.0, width: 200, height: CGFloat(menuHeight)))
-            menuLable.text = "JK"
+            let menuLable = UILabel(frame:  CGRect(x: self.bounds.size.width/2-15, y: 0.0, width: 200, height: CGFloat(menuHeight)))
+            menuLable.text = "梧桐"
             menuLable.textColor = UIColor.init(red: 186/255, green: 99/255, blue: 198/255, alpha: 1.0)
             buttonView.backgroundColor = UIColor.black
+            buttonView.alpha = 0.95
             buttonView.addSubview(menuLable)
             buttonView.addSubview(button)
             self.addSubview(buttonView)
