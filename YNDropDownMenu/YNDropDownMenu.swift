@@ -603,7 +603,7 @@ open class YNDropDownMenu: UIView, YNDropDownDelegate {
         
         for i in 0..<numberOfMenu {
             // Setup button
-            let button = YNDropDownButton(frame: CGRect(x: 0, y: 0.0, width: 10, height: CGFloat(menuHeight)), buttonLabelText: dropDownViewTitles?[i])
+            let button = YNDropDownButton(frame: CGRect(x: 0, y: 0.0, width: 10, height: CGFloat(menuHeight)-10), buttonLabelText: dropDownViewTitles?[i])
             button.tag = i
             button.addTarget(self, action: #selector(menuClicked(_:)), for: .touchUpInside)
             dropDownButtons?.append(button)
@@ -613,10 +613,15 @@ open class YNDropDownMenu: UIView, YNDropDownDelegate {
             let menuLable = UILabel(frame:  CGRect(x: self.bounds.size.width/2-15, y: 0.0, width: 200, height: CGFloat(menuHeight)))
             menuLable.text = "梧桐"
             menuLable.textColor = UIColor.init(red: 186/255, green: 99/255, blue: 198/255, alpha: 1.0)
+            
+            let logo = UIImageView(frame: CGRect(x: 0, y: -10, width: CGFloat(menuHeight)+20, height: CGFloat(menuHeight)+20))
+            logo.image = UIImage(named: "logo")
+            
             buttonView.backgroundColor = UIColor.black
             buttonView.alpha = 0.95
             buttonView.addSubview(menuLable)
             buttonView.addSubview(button)
+            buttonView.addSubview(logo)
             self.addSubview(buttonView)
             
             // Setup Views
